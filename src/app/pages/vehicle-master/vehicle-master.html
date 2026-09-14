@@ -1,1 +1,246 @@
-<p>vehicle-master works!</p>
+<section class="vehicle-master-page" aria-labelledby="vehicle-page-title">
+  <div class="page-heading">
+    <div>
+      <h1 id="vehicle-page-title">Vehicle master</h1>
+      <p class="page-description">
+        Create, review, and maintain the vehicles available for rental.
+      </p>
+    </div>
+    <div class="fleet-summary" aria-label="Fleet summary">
+      <span class="summary-icon" aria-hidden="true">↗</span>
+      <div>
+        <strong>24</strong>
+        <span>Active vehicles</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="row g-4 align-items-start">
+    <div class="col-12 col-xl-7">
+      <section
+        class="card vehicle-list-card h-100"
+        aria-labelledby="vehicle-list-title"
+      >
+        <div class="card-header list-header">
+          <div>
+            <p class="section-kicker">Your fleet</p>
+            <h2 id="vehicle-list-title">Created vehicles <span>3</span></h2>
+          </div>
+          <button
+            class="filter-button"
+            type="button"
+            aria-label="Filter vehicles"
+          >
+            <span aria-hidden="true">☷</span>
+            Filter
+          </button>
+        </div>
+
+        <div class="vehicle-list" role="list">
+          <article class="vehicle-row" role="listitem">
+            <div class="vehicle-thumb vehicle-thumb-blue" aria-hidden="true">
+              <span>SEDAN</span>
+            </div>
+            <div class="vehicle-details">
+              <div class="vehicle-title-line">
+                <h3>Toyota Camry</h3>
+                <span class="status-badge">Available</span>
+              </div>
+              <p class="vehicle-meta">
+                2023 <span>•</span> Pearl white <span>•</span> KDA 4821
+              </p>
+              <p class="vehicle-rate"><strong>$68</strong> / day</p>
+            </div>
+            <div class="vehicle-actions">
+              <button
+                type="button"
+                class="icon-button"
+                aria-label="Edit Toyota Camry"
+              >
+                ✎
+              </button>
+              <button
+                type="button"
+                class="icon-button danger"
+                aria-label="Delete Toyota Camry"
+              >
+                ⌫
+              </button>
+            </div>
+          </article>
+
+          <article class="vehicle-row" role="listitem">
+            <div class="vehicle-thumb vehicle-thumb-red" aria-hidden="true">
+              <span>SUV</span>
+            </div>
+            <div class="vehicle-details">
+              <div class="vehicle-title-line">
+                <h3>Honda CR-V</h3>
+                <span class="status-badge">Available</span>
+              </div>
+              <p class="vehicle-meta">
+                2022 <span>•</span> Canyon red <span>•</span> KDB 1904
+              </p>
+              <p class="vehicle-rate"><strong>$82</strong> / day</p>
+            </div>
+            <div class="vehicle-actions">
+              <button
+                type="button"
+                class="icon-button"
+                aria-label="Edit Honda CR-V"
+              >
+                ✎
+              </button>
+              <button
+                type="button"
+                class="icon-button danger"
+                aria-label="Delete Honda CR-V"
+              >
+                ⌫
+              </button>
+            </div>
+          </article>
+
+          <article class="vehicle-row" role="listitem">
+            <div class="vehicle-thumb vehicle-thumb-green" aria-hidden="true">
+              <span>HATCH</span>
+            </div>
+            <div class="vehicle-details">
+              <div class="vehicle-title-line">
+                <h3>Volkswagen Golf</h3>
+                <span class="status-badge status-maintenance">Service</span>
+              </div>
+              <p class="vehicle-meta">
+                2021 <span>•</span> Sage green <span>•</span> KDC 7740
+              </p>
+              <p class="vehicle-rate"><strong>$55</strong> / day</p>
+            </div>
+            <div class="vehicle-actions">
+              <button
+                type="button"
+                class="icon-button"
+                aria-label="Edit Volkswagen Golf"
+              >
+                ✎
+              </button>
+              <button
+                type="button"
+                class="icon-button danger"
+                aria-label="Delete Volkswagen Golf"
+              >
+                ⌫
+              </button>
+            </div>
+          </article>
+        </div>
+        <div class="list-footer">Showing 3 of 24 vehicles <span>→</span></div>
+      </section>
+    </div>
+
+    <div class="col-12 col-xl-5">
+      <section
+        class="card vehicle-form-card"
+        aria-labelledby="vehicle-form-title"
+      >
+        <div class="card-header form-header">
+          <div>
+            <p class="section-kicker">Fleet entry</p>
+            <h2 id="vehicle-form-title">Add a vehicle</h2>
+          </div>
+          <span class="form-step">01 <small>/ 01</small></span>
+        </div>
+
+        <form class="vehicle-form">
+          <div class="form-section">
+            <p class="form-section-title">Vehicle identity</p>
+            <div class="row g-3">
+              <div class="col-12 col-md-6">
+                <label for="brand">Brand</label>
+                <input
+                  id="brand"
+                  [(ngModel)]="vehicleObj.brand"
+                  name="brand"
+                  type="text"
+                  placeholder="e.g. Toyota"
+                />
+              </div>
+              <div class="col-12 col-md-6">
+                <label for="model">Model</label>
+                <input
+                  id="model"
+                  [(ngModel)]="vehicleObj.model"
+                  name="model"
+                  type="text"
+                  placeholder="e.g. Camry"
+                />
+              </div>
+              <div class="col-12 col-md-6">
+                <label for="year">Year</label>
+                <input id="year" [(ngModel)]="vehicleObj.year" name="year" type="number" placeholder="2024" />
+              </div>
+              <div class="col-12 col-md-6">
+                <label for="color">Color</label>
+                <input
+                  id="color"
+                  [(ngModel)]="vehicleObj.color"
+                  name="color"
+                  type="text"
+                  placeholder="e.g. Midnight blue"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <p class="form-section-title">Rental details</p>
+            <div class="row g-3">
+              <div class="col-12 col-md-6">
+                <label for="daily-rate">Daily rate</label>
+                <div class="input-with-prefix">
+                  <span>$</span
+                  ><input
+                    id="daily-rate"
+                    [(ngModel)]="vehicleObj.dailyRate"
+                    name="dailyRate"
+                    type="number"
+                    placeholder="0.00"
+                  />
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <label for="reg-no">Registration no.</label>
+                <input
+                  id="reg-no"
+                  [(ngModel)]="vehicleObj.regNo"
+                  name="regNo"
+                  type="text"
+                  placeholder="KDA 0000"
+                />
+              </div>
+              <div class="col-12">
+                <label for="car-image">Car image URL</label>
+                <div class="input-with-icon">
+                  <span aria-hidden="true">↗</span
+                  ><input
+                    id="car-image"
+                    [(ngModel)]="vehicleObj.carImage"
+                    name="carImage"
+                    type="url"
+                    placeholder="https://image-url.com/car.jpg"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button class="btn btn-outline-light" type="reset">Clear</button>
+            <button class="btn btn-primary save-button" (click)="onSaveVehicle()" type="submit">
+              <span aria-hidden="true">＋</span> Create vehicle
+            </button>
+          </div>
+        </form>
+      </section>
+    </div>
+  </div>
+</section>

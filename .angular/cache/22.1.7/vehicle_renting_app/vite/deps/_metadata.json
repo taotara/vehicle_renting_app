@@ -1,0 +1,74 @@
+{
+  "hash": "16c7ffd2",
+  "configHash": "3eb5e171",
+  "lockfileHash": "f458d7ea",
+  "browserHash": "b35eac93",
+  "optimized": {
+    "@angular/common": {
+      "src": "../../../../../../node_modules/@angular/common/fesm2022/common.mjs",
+      "file": "@angular_common.js",
+      "fileHash": "76dc004b",
+      "needsInterop": false
+    },
+    "@angular/common/http": {
+      "src": "../../../../../../node_modules/@angular/common/fesm2022/http.mjs",
+      "file": "@angular_common_http.js",
+      "fileHash": "3277cdc5",
+      "needsInterop": false
+    },
+    "@angular/core": {
+      "src": "../../../../../../node_modules/@angular/core/fesm2022/core.mjs",
+      "file": "@angular_core.js",
+      "fileHash": "9f6eb784",
+      "needsInterop": false
+    },
+    "@angular/forms": {
+      "src": "../../../../../../node_modules/@angular/forms/fesm2022/forms.mjs",
+      "file": "@angular_forms.js",
+      "fileHash": "2af54065",
+      "needsInterop": false
+    },
+    "@angular/platform-browser": {
+      "src": "../../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
+      "file": "@angular_platform-browser.js",
+      "fileHash": "c55fc569",
+      "needsInterop": false
+    },
+    "@angular/router": {
+      "src": "../../../../../../node_modules/@angular/router/fesm2022/router.mjs",
+      "file": "@angular_router.js",
+      "fileHash": "3ec8dc42",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "_platform_location-chunk-CIZ3Zb1e": {
+      "file": "_platform_location-chunk-CIZ3Zb1e.js",
+      "isDynamicEntry": false
+    },
+    "common-wdamUWKm": {
+      "file": "common-wdamUWKm.js",
+      "isDynamicEntry": false
+    },
+    "core-Bo2E9ccG": {
+      "file": "core-Bo2E9ccG.js",
+      "isDynamicEntry": false
+    },
+    "createObject-D_FdsP9U": {
+      "file": "createObject-D_FdsP9U.js",
+      "isDynamicEntry": false
+    },
+    "from-70KUaEeQ": {
+      "file": "from-70KUaEeQ.js",
+      "isDynamicEntry": false
+    },
+    "http-wOFp-nGg": {
+      "file": "http-wOFp-nGg.js",
+      "isDynamicEntry": false
+    },
+    "platform-browser-B8CgoYqG": {
+      "file": "platform-browser-B8CgoYqG.js",
+      "isDynamicEntry": false
+    }
+  }
+}
