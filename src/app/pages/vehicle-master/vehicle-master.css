@@ -135,15 +135,46 @@
   color: var(--text-primary);
 }
 
-.vehicle-list {
+.vehicle-table-wrapper {
+  overflow-x: auto;
   padding: 4px 24px 0;
 }
-.vehicle-row {
+.vehicle-table {
+  width: 100%;
+  min-width: 620px;
+  border-collapse: collapse;
+  color: var(--text-secondary);
+  font-size: 11px;
+}
+.vehicle-table th,
+.vehicle-table td {
+  padding: 14px 10px;
+  border-bottom: 1px solid rgba(46, 58, 82, 0.72);
+  text-align: left;
+  white-space: nowrap;
+}
+.vehicle-table thead th {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: var(--text-disabled);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.vehicle-table tbody th {
+  color: var(--text-primary);
+  font-weight: 400;
+}
+.vehicle-table tbody tr:last-child th,
+.vehicle-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+.vehicle-cell {
   display: flex;
   align-items: center;
-  gap: 15px;
-  padding: 19px 0;
-  border-bottom: 1px solid rgba(46, 58, 82, 0.72);
+  gap: 12px;
+  min-width: 170px;
 }
 .vehicle-thumb {
   display: flex;
@@ -198,12 +229,6 @@
 .vehicle-details {
   min-width: 0;
   flex: 1;
-}
-.vehicle-title-line {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  flex-wrap: wrap;
 }
 .vehicle-master-page h3 {
   color: var(--text-primary);
@@ -358,6 +383,18 @@
   font-size: 17px;
   vertical-align: -1px;
 }
+.update-button {
+  border: 0;
+  background: var(--success);
+}
+.update-button:hover {
+  background: var(--success-hover);
+}
+.update-button span {
+  margin-right: 5px;
+  font-size: 17px;
+  vertical-align: -1px;
+}
 
 @media (max-width: 575px) {
   .vehicle-master-page {
@@ -373,17 +410,17 @@
   }
   .list-header,
   .form-header,
-  .vehicle-form,
-  .vehicle-list {
+  .vehicle-form {
     padding-right: 16px;
     padding-left: 16px;
   }
-  .vehicle-row {
-    align-items: flex-start;
-    flex-wrap: wrap;
+  .vehicle-table-wrapper {
+    padding-right: 16px;
+    padding-left: 16px;
   }
-  .vehicle-actions {
-    margin-left: 111px;
-    margin-top: -8px;
+  .vehicle-table th,
+  .vehicle-table td {
+    padding-right: 8px;
+    padding-left: 8px;
   }
 }

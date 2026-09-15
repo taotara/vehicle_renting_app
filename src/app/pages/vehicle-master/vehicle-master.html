@@ -36,102 +36,53 @@
           </button>
         </div>
 
-        <div class="vehicle-list" role="list">
-          <article class="vehicle-row" role="listitem">
-            <div class="vehicle-thumb vehicle-thumb-blue" aria-hidden="true">
-              <span>SEDAN</span>
-            </div>
-            <div class="vehicle-details">
-              <div class="vehicle-title-line">
-                <h3>Toyota Camry</h3>
-                <span class="status-badge">Available</span>
-              </div>
-              <p class="vehicle-meta">
-                2023 <span>•</span> Pearl white <span>•</span> KDA 4821
-              </p>
-              <p class="vehicle-rate"><strong>$68</strong> / day</p>
-            </div>
-            <div class="vehicle-actions">
-              <button
-                type="button"
-                class="icon-button"
-                aria-label="Edit Toyota Camry"
-              >
-                ✎
-              </button>
-              <button
-                type="button"
-                class="icon-button danger"
-                aria-label="Delete Toyota Camry"
-              >
-                ⌫
-              </button>
-            </div>
-          </article>
-
-          <article class="vehicle-row" role="listitem">
-            <div class="vehicle-thumb vehicle-thumb-red" aria-hidden="true">
-              <span>SUV</span>
-            </div>
-            <div class="vehicle-details">
-              <div class="vehicle-title-line">
-                <h3>Honda CR-V</h3>
-                <span class="status-badge">Available</span>
-              </div>
-              <p class="vehicle-meta">
-                2022 <span>•</span> Canyon red <span>•</span> KDB 1904
-              </p>
-              <p class="vehicle-rate"><strong>$82</strong> / day</p>
-            </div>
-            <div class="vehicle-actions">
-              <button
-                type="button"
-                class="icon-button"
-                aria-label="Edit Honda CR-V"
-              >
-                ✎
-              </button>
-              <button
-                type="button"
-                class="icon-button danger"
-                aria-label="Delete Honda CR-V"
-              >
-                ⌫
-              </button>
-            </div>
-          </article>
-
-          <article class="vehicle-row" role="listitem">
-            <div class="vehicle-thumb vehicle-thumb-green" aria-hidden="true">
-              <span>HATCH</span>
-            </div>
-            <div class="vehicle-details">
-              <div class="vehicle-title-line">
-                <h3>Volkswagen Golf</h3>
-                <span class="status-badge status-maintenance">Service</span>
-              </div>
-              <p class="vehicle-meta">
-                2021 <span>•</span> Sage green <span>•</span> KDC 7740
-              </p>
-              <p class="vehicle-rate"><strong>$55</strong> / day</p>
-            </div>
-            <div class="vehicle-actions">
-              <button
-                type="button"
-                class="icon-button"
-                aria-label="Edit Volkswagen Golf"
-              >
-                ✎
-              </button>
-              <button
-                type="button"
-                class="icon-button danger"
-                aria-label="Delete Volkswagen Golf"
-              >
-                ⌫
-              </button>
-            </div>
-          </article>
+        <div class="vehicle-table-wrapper">
+          <table class="vehicle-table">
+            <caption class="visually-hidden">
+              Created vehicles
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col">Registration</th>
+                <th scope="col">Vehicle</th>
+                <th scope="col">Year</th>
+                <th scope="col">Daily rate</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (item of vehicleList(); track $index) {
+              <tr>
+                <td>
+                  <img [src]="item.carImage" width="50px" alt="{{item.model}}">
+                </td>
+                <td>{{item.brand}} {{item.model}}</td>
+                <td>{{item.year}}</td>
+                <td class="vehicle-rate"><strong>${{item.dailyRate}}</strong> / day</td>
+                <td>
+                  <div class="vehicle-actions">
+                    <button
+                      type="button"
+                      class="icon-button"
+                      (click)="onEditRecord(item)"
+                      aria-label="Edit Toyota Camry"
+                    >
+                      ✎
+                    </button>
+                    <button
+                      type="button"
+                      class="icon-button danger"
+                      (click)="onDeleteVehicle(item.carId)"
+                      aria-label="Delete Toyota Camry"
+                    >
+                      ⌫
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              }
+            </tbody>
+          </table>
         </div>
         <div class="list-footer">Showing 3 of 24 vehicles <span>→</span></div>
       </section>
@@ -176,7 +127,13 @@
               </div>
               <div class="col-12 col-md-6">
                 <label for="year">Year</label>
-                <input id="year" [(ngModel)]="vehicleObj.year" name="year" type="number" placeholder="2024" />
+                <input
+                  id="year"
+                  [(ngModel)]="vehicleObj.year"
+                  name="year"
+                  type="number"
+                  placeholder="2024"
+                />
               </div>
               <div class="col-12 col-md-6">
                 <label for="color">Color</label>
@@ -235,9 +192,24 @@
 
           <div class="form-actions">
             <button class="btn btn-outline-light" type="reset">Clear</button>
-            <button class="btn btn-primary save-button" (click)="onSaveVehicle()" type="submit">
+            @if (vehicleObj.carId === 0) {
+              <button
+              class="btn btn-primary save-button"
+              (click)="onSaveVehicle()"
+              type="submit"
+            >
               <span aria-hidden="true">＋</span> Create vehicle
             </button>
+            } @else {
+              <button
+              class="btn btn-primary update-button"
+              (click)="onUpdateVehicle()"
+              type="submit"
+            >
+              Update vehicle
+            </button>
+            }
+            
           </div>
         </form>
       </section>
