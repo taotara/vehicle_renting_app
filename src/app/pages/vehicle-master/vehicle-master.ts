@@ -3,6 +3,7 @@ import { Vehicle } from "../../models/vehicle.model";
 import { FormsModule } from "@angular/forms";
 import { HttpClient } from "@angular/common/http";
 import { IApiResponse } from "../../models/common.model";
+import { Master } from "../../services/master";
 
 @Component({
   imports: [FormsModule],
@@ -17,12 +18,22 @@ export class VehicleMaster implements OnInit {
 
   http = inject(HttpClient);
 
+  master = inject(Master);
+
   ngOnInit(): void {
     this.getAllVehicles();
   }
 
+  // getAllVehicles() {
+  //   this.http.get<IApiResponse>("https://freeapi.gerasim.in/api/CarRentalApp/GetCars").subscribe({
+  //     next:(res:IApiResponse) => {
+  //       this.vehicleList.set(res.data)
+  //     }
+  //   })
+  // }
+
   getAllVehicles() {
-    this.http.get<IApiResponse>("https://freeapi.gerasim.in/api/CarRentalApp/GetCars").subscribe({
+    this.master.getAllVehicles().subscribe({
       next:(res:IApiResponse) => {
         this.vehicleList.set(res.data)
       }

@@ -1,1 +1,298 @@
-<p>booking works!</p>
+<section class="booking-page" aria-labelledby="booking-page-title">
+  <div class="page-heading booking-heading">
+    <div>
+      <p class="section-kicker">Rental operations</p>
+      <h1 id="booking-page-title">Bookings</h1>
+      <p class="page-description">
+        Create, review, and maintain reservations across your rental fleet.
+      </p>
+    </div>
+    <div class="booking-summary" aria-label="Booking summary">
+      <span class="summary-icon" aria-hidden="true">↗</span>
+      <div>
+        <strong>18</strong>
+        <span>Active bookings</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="row g-4 align-items-start booking-layout">
+    <div class="col-12 col-xl-7">
+      <section
+        class="card booking-list-card h-100"
+        aria-labelledby="booking-list-title"
+      >
+        <div class="card-header list-header">
+          <div>
+            <p class="section-kicker">Reservation desk</p>
+            <h2 id="booking-list-title">All bookings <span>3</span></h2>
+          </div>
+          <div class="booking-list-tools">
+            <label class="booking-search">
+              <span aria-hidden="true">⌕</span>
+              <span class="visually-hidden">Search bookings</span>
+              <input type="search" placeholder="Search customer" />
+            </label>
+            <button
+              class="filter-button"
+              type="button"
+              aria-label="Filter bookings"
+            >
+              <span aria-hidden="true">☷</span>
+              Filter
+            </button>
+          </div>
+        </div>
+
+        <div class="booking-table-wrapper">
+          <table class="booking-table">
+            <caption class="visually-hidden">
+              Current vehicle bookings
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col">Customer</th>
+                <th scope="col">Vehicle</th>
+                <th scope="col">Booking date</th>
+                <th scope="col">Total</th>
+                <th scope="col">
+                  <span class="visually-hidden">Actions</span>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">
+                  <div class="booking-customer">
+                    <span class="customer-avatar">AM</span>
+                    <span>
+                      <strong>Alex Morgan</strong>
+                      <small>alex.morgan@email.com</small>
+                    </span>
+                  </div>
+                </th>
+                <td><strong>Toyota Camry</strong><small>KDA 4821</small></td>
+                <td><strong>15 Sep 2026</strong><small>09:05 AM</small></td>
+                <td class="booking-total">
+                  <strong>$272</strong><small>Discount $20</small>
+                </td>
+                <td>
+                  <div class="vehicle-actions">
+                    <button
+                      type="button"
+                      class="icon-button"
+                      aria-label="Edit Alex Morgan booking"
+                    >
+                      ✎
+                    </button>
+                    <button
+                      type="button"
+                      class="icon-button danger"
+                      aria-label="Delete Alex Morgan booking"
+                    >
+                      ⌫
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <div class="booking-customer">
+                    <span class="customer-avatar customer-avatar-gold">JD</span>
+                    <span>
+                      <strong>Jordan Davis</strong>
+                      <small>jordan.davis@email.com</small>
+                    </span>
+                  </div>
+                </th>
+                <td><strong>Honda CR-V</strong><small>KDB 1904</small></td>
+                <td><strong>18 Sep 2026</strong><small>11:30 AM</small></td>
+                <td class="booking-total">
+                  <strong>$410</strong><small>Discount $0</small>
+                </td>
+                <td>
+                  <div class="vehicle-actions">
+                    <button
+                      type="button"
+                      class="icon-button"
+                      aria-label="Edit Jordan Davis booking"
+                    >
+                      ✎
+                    </button>
+                    <button
+                      type="button"
+                      class="icon-button danger"
+                      aria-label="Delete Jordan Davis booking"
+                    >
+                      ⌫
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <div class="booking-customer">
+                    <span class="customer-avatar customer-avatar-green"
+                      >SP</span
+                    >
+                    <span>
+                      <strong>Samira Patel</strong>
+                      <small>samira.patel@email.com</small>
+                    </span>
+                  </div>
+                </th>
+                <td><strong>Volkswagen Golf</strong><small>KDC 7740</small></td>
+                <td><strong>22 Sep 2026</strong><small>02:15 PM</small></td>
+                <td class="booking-total">
+                  <strong>$165</strong><small>Discount $15</small>
+                </td>
+                <td>
+                  <div class="vehicle-actions">
+                    <button
+                      type="button"
+                      class="icon-button"
+                      aria-label="Edit Samira Patel booking"
+                    >
+                      ✎
+                    </button>
+                    <button
+                      type="button"
+                      class="icon-button danger"
+                      aria-label="Delete Samira Patel booking"
+                    >
+                      ⌫
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="list-footer">Showing 3 of 18 bookings <span>→</span></div>
+      </section>
+    </div>
+
+    <div class="col-12 col-xl-5">
+      <section
+        class="card booking-form-card"
+        aria-labelledby="booking-form-title"
+      >
+        <div class="card-header form-header">
+          <div>
+            <p class="section-kicker">Reservation entry</p>
+            <h2 id="booking-form-title">Create a booking</h2>
+          </div>
+          <span class="form-step">01 <small>/ 01</small></span>
+        </div>
+        <div class="m-3">
+          <form class="booking-form" [formGroup]="bookingForm">
+            <div class="form-section">
+              <p class="form-section-title">Customer details</p>
+              <div class="row g-3">
+                <div class="col-12 col-md-6">
+                  <label for="customer-name">Customer name</label>
+                  <input
+                    id="customer-name"
+                    formControlName="customerName"
+                    name="customerName"
+                    type="text"
+                    placeholder="e.g. Alex Morgan"
+                  />
+                </div>
+                <div class="col-12 col-md-6">
+                  <label for="customer-city">City</label>
+                  <input
+                    id="customer-city"
+                    formControlName="customerCity"
+                    name="customerCity"
+                    type="text"
+                    placeholder="e.g. Nairobi"
+                  />
+                </div>
+                <div class="col-12 col-md-6">
+                  <label for="mobile-no">Mobile number</label>
+                  <input
+                    id="mobile-no"
+                    formControlName="mobileNo"
+                    name="mobileNo"
+                    type="tel"
+                    placeholder="+254 700 000 000"
+                  />
+                </div>
+                <div class="col-12 col-md-6">
+                  <label for="email">Email address</label>
+                  <input
+                    id="email"
+                    formControlName="email"
+                    name="email"
+                    type="email"
+                    placeholder="name@email.com"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <p class="form-section-title">Booking details</p>
+              <div class="row g-3">
+                <div class="col-12">
+                  <label for="car-id">Vehicle</label>
+                  <select id="car-id" formControlName="carId" name="carId">
+                    <option value="">Select a vehicle</option>
+                    @for (item of vehicleList(); track $index) {
+                      <option [value]="item.carId">{{item.brand}} - {{item.model}}: {{item.regNo}}</option>
+                    }
+                  </select>
+                </div>
+                <div class="col-12 col-md-6">
+                  <label for="booking-date">Booking date</label>
+                  <input
+                    id="booking-date"
+                    formControlName="bookingDate" 
+                    name="bookingDate"
+                    type="datetime-local"
+                  />
+                </div>
+                <div class="col-12 col-md-6">
+                  <label for="discount">Discount</label>
+                  <div class="input-with-prefix">
+                    <span>$</span>
+                    <input
+                      id="discount"
+                      formControlName="discount" 
+                      name="discount"
+                      type="number"
+                      min="0"
+                      placeholder="0.00"
+                    />
+                  </div>
+                </div>
+                <div class="col-12">
+                  <label for="total-bill-amount">Total bill amount</label>
+                  <div class="input-with-prefix">
+                    <span>$</span>
+                    <input
+                      id="total-bill-amount"
+                      formControlName="totalBillAmount" 
+                      name="totalBillAmount"
+                      type="number"
+                      min="0"
+                      placeholder="0.00"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button class="btn btn-outline-light" type="reset">Clear</button>
+              <button class="btn btn-primary save-button" type="button" (click)="onSave()">
+                <span aria-hidden="true">＋</span> Create booking
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
